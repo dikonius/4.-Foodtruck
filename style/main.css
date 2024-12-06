@@ -1,0 +1,85 @@
+* {
+	box-sizing: border-box; margin: 0; padding: 0;
+}
+
+body {
+	font-family: "Fira Mono";
+}
+
+.menu {
+	background-color: #489078;
+	height: 100vh;
+	color: #eaede9;
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+}
+
+.menu-h1 {
+	align-self: flex-start;
+	margin: 0.5em 0 0.2em 0.7em;
+
+}
+
+.menu-nest4-cart-container {
+	display: flex;
+	width: 97vw;
+	justify-content: end;
+	padding-top: 0.7em;
+}
+
+.menu-cart-container {
+	background-color: #eaede9;
+	width: 3em;
+	height: 3em;
+	border-radius: 3px;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+}
+
+.menu-cart {
+	width: 1.5em;
+	height: 1.5em;
+}
+
+.menu-items {
+	display: flex;
+	flex-direction: column;
+	width: 90vw;
+	height: 25em;
+	border-radius: 0.5em;
+}
+
+.menu-item-btn {
+	background-color: #605858;
+	color: #eaede9;
+	height: 6em;
+	border-radius: 0.5em;
+	padding: 1em;
+}
+
+.menu-item-dots {
+	flex-grow: 1;
+    border-bottom: 1.5px dotted white;
+    margin: 0 0.8em;
+}
+
+.menu-item-btn .menu-item-name-price {
+	flex-shrink: 0;
+    font-weight: bold;
+	font-size: 1rem;
+}
+
+.menu-item-name-container {
+	display: flex;
+	margin-bottom: 0.5em;
+}
+
+.menu-item-ingredients {
+	text-align: start;
+}
+
+.hidden {
+	display: none;
+}
