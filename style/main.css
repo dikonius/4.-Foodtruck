@@ -1,9 +1,4 @@
-:root {
-	--light-color: #eaede9;
-	--gray-bg-color: #605858;
-	--dark-bg-color: #353131;
-	--accessoryBTN-bg-color: #837c7c;
-}
+
 
 * {
 	box-sizing: border-box; margin: 0; padding: 0;
@@ -36,7 +31,7 @@ body {
 	padding-top: 0.7em;
 }
 
-.menu-cart-container {
+.menu-cartBTN-container {
 	background-color: var(--light-color);
 	width: 4em;
 	height: 4em;
@@ -44,6 +39,8 @@ body {
 	display: flex;
 	justify-content: center;
 	align-items: center;
+	border-style: none;
+	cursor: pointer;
 }
 
 .menu-cart {
@@ -59,7 +56,7 @@ body {
 	background-color: #eb5757;
 	position: relative;
 	bottom: 1em;
-	left: 7.5em;
+	left: 6.2em;
 	font-size: 0.6rem;
 	justify-content: center;
 	align-items: center;
@@ -93,6 +90,8 @@ body {
 	cursor: pointer;
 	border-style: none;
 	border-bottom: 0.1em dotted rgb(138, 126, 126);
+	transition: all;
+	transition-duration: 0.5s;
 }
 
 .menu-item-btn:active, .menu-dip-btn:active, .menu-drink-btn:active {
@@ -162,6 +161,8 @@ body {
 	align-items: center;
 	justify-content: center;
 	font-weight: bold;
+	transition: all;
+	transition-duration: 0.5s;
 }
 
 .hidden {

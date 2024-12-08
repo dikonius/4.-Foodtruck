@@ -1,0 +1,88 @@
+
+
+.order {
+	background-color: var(--order-bg-color);
+	height: 100vh;
+	color: var(--dark-bg-color);
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+}
+
+.order-nest4-cart-container {
+	display: flex;
+	width: 90vw;
+	justify-content: end;
+	padding-top: 0.7em;
+}
+
+.order-cartBTN-container {
+	background-color: var(--light-color);
+	width: 4em;
+	height: 4em;
+	border-radius: 0.3em;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	border-style: none;
+	cursor: pointer;
+}
+
+.order-cart {
+	width: 2.5em;
+	height: 2.5em;
+}
+
+.order-item {
+	display: flex;
+	flex-direction: column;
+	width: 85vw;
+	margin-top: 2em;
+	border-bottom: 1px dotted var(--gray-bg-color);
+}
+
+.order-item-dots {
+	flex-grow: 1;
+    border-bottom: 1.5px dotted var(--dark-bg-color);
+    margin: 0 0.8em;
+}
+
+.order-item-name-container .order-item-name, .order-item-name-container .order-item-subtotal {
+	flex-shrink: 0;
+    font-weight: bold;
+	font-size: 1.3rem;
+}
+
+.order-item-name-container {
+	display: flex;
+	margin-bottom: 0.5em;
+}
+
+.order-item-quantity, .order-tax {
+	font-weight: bold;
+}
+
+.order-btn-container {
+	display: flex;
+	align-items: baseline;
+}
+
+.order-plusBtn, .order-minusBtn {
+	height: 1.5em;
+	width: 1.5em;
+	background-color: var(--plusMinusBtn-bg-color);
+	border-style: none;
+	border-radius: 50%;
+	font-size: 1rem;
+	color: var(--accessoryBTN-bg-color);
+	display: flex;
+	justify-content: center;
+	align-items: center;
+}
+
+.order-plusBtn {
+	margin: 0 0.5em 1em 0;
+}
+.order-minusBtn {
+	margin:0 0 1em 0.5em;
+}

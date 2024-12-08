@@ -11,6 +11,8 @@
 	<link href="https://fonts.googleapis.com/css2?family=Chewy&family=Fira+Mono:wght@400;500;700&display=swap" rel="stylesheet">
 
 	<link rel="stylesheet" href="style/main.css">
+	<link rel="stylesheet" href="style/order.css">
+	<link rel="stylesheet" href="style/variables.css">
 
 	<script type="module" src="javascript/scritp.js"></script>
 
@@ -18,12 +20,12 @@
 </head>
 <body>
 	
-	<section class="menu">
+	<section class="menu hidden">
 		<div class="menu-nest4-cart-container">
 			<span class="menu-badge"> 10 </span>
-			<div class="menu-cart-container">
+			<button class="menu-cartBTN-container">
 				<img class="menu-cart" src="assets/cart.png" alt="shopping_cart">
-			</div>
+			</button>
 		</div>
 		<h1 class="menu-h1"> MENY </h1>
 
@@ -111,6 +113,43 @@
 		</div>
 
 	</section>
+
+	<div class="order">
+		<div class="order-nest4-cart-container">
+			<button class="order-cartBTN-container">
+				<img class="order-cart" src="assets/cart.png" alt="shopping_cart">
+			</button>
+		</div>
+
+
+
+		<div class="order-item">
+			<div class="order-item-name-container">
+				<p class="order-item-name"> KARLSTAD </p>
+				<span class="order-item-dots"></span>
+				<p class="order-item-subtotal"> 27 SEK </p>
+			</div>
+			<div class="order-btn-container">
+				<button class="order-plusBtn"> + </button>
+				<span class="order-item-quantity"> 3 stycken </span>
+				<button class="order-minusBtn"> &#8211; </button>
+			</div>
+		</div>
+			
+
+
+
+		<div class="order-payment-container">
+			<div class="order-total-container">
+				<p class="order-total"> TOTALT </p>
+				<p class="order-tax"> inkl 12% moms </p>
+			</div>
+			<p class="order-price"> 120 SEK </p>
+		</div>
+
+		<button class="take-my-money"> TAKE MY MONEY </button>
+
+	</div>
 
 </body>
 </html>
