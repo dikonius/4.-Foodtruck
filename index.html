@@ -8,11 +8,16 @@
 
 	<link rel="preconnect" href="https://fonts.googleapis.com">
 	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+	<link href="https://fonts.googleapis.com/css2?family=Noto+Sans:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
+
+	<link rel="preconnect" href="https://fonts.googleapis.com">
+	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 	<link href="https://fonts.googleapis.com/css2?family=Chewy&family=Fira+Mono:wght@400;500;700&display=swap" rel="stylesheet">
 
 	<link rel="stylesheet" href="style/main.css">
 	<link rel="stylesheet" href="style/order.css">
 	<link rel="stylesheet" href="style/variables.css">
+	<link rel="stylesheet" href="style/eta.css">
 
 	<script type="module" src="javascript/scritp.js"></script>
 
@@ -20,7 +25,7 @@
 </head>
 <body>
 	
-	<section class="menu hidden">
+	<section class="menu">
 		<div class="menu-nest4-cart-container">
 			<span class="menu-badge"> 10 </span>
 			<button class="menu-cartBTN-container">
@@ -114,14 +119,12 @@
 
 	</section>
 
-	<div class="order">
+	<div class="order hidden">
 		<div class="order-nest4-cart-container">
 			<button class="order-cartBTN-container">
 				<img class="order-cart" src="assets/cart.png" alt="shopping_cart">
 			</button>
 		</div>
-
-
 
 		<div class="order-item">
 			<div class="order-item-name-container">
@@ -135,20 +138,89 @@
 				<button class="order-minusBtn"> &#8211; </button>
 			</div>
 		</div>
-			
-
-
+		<div class="order-item">
+			<div class="order-item-name-container">
+				<p class="order-item-name"> HO CHI MINH </p>
+				<span class="order-item-dots"></span>
+				<p class="order-item-subtotal"> 18 SEK </p>
+			</div>
+			<div class="order-btn-container">
+				<button class="order-plusBtn"> + </button>
+				<span class="order-item-quantity"> 2 stycken </span>
+				<button class="order-minusBtn"> &#8211; </button>
+			</div>
+		</div>
+		<div class="order-item">
+			<div class="order-item-name-container">
+				<p class="order-item-name"> KINGSTON </p>
+				<span class="order-item-dots"></span>
+				<p class="order-item-subtotal"> 18 SEK </p>
+			</div>
+			<div class="order-btn-container">
+				<button class="order-plusBtn"> + </button>
+				<span class="order-item-quantity"> 2 stycken </span>
+				<button class="order-minusBtn"> &#8211; </button>
+			</div>
+		</div>
+		<div class="order-item">
+			<div class="order-item-name-container">
+				<p class="order-item-name"> SWEET CHILI DIP </p>
+				<span class="order-item-dots"></span>
+				<p class="order-item-subtotal"> 19 SEK </p>
+			</div>
+			<div class="order-btn-container">
+				<button class="order-plusBtn"> + </button>
+				<span class="order-item-quantity"> 1 stycken </span>
+				<button class="order-minusBtn"> &#8211; </button>
+			</div>
+		</div>
+		<div class="order-item-last">
+			<div class="order-item-name-container">
+				<p class="order-item-name"> GUACAMOLE </p>
+				<span class="order-item-dots"></span>
+				<p class="order-item-subtotal"> 19 SEK </p>
+			</div>
+			<div class="order-btn-container">
+				<button class="order-plusBtn"> + </button>
+				<span class="order-item-quantity"> 1 stycken </span>
+				<button class="order-minusBtn"> &#8211; </button>
+			</div>
+		</div>
+		<div class="order-item-last">
+			<div class="order-item-name-container">
+				<p class="order-item-name"> FANTA ORANGE </p>
+				<span class="order-item-dots"></span>
+				<p class="order-item-subtotal"> 19 SEK </p>
+			</div>
+			<div class="order-btn-container">
+				<button class="order-plusBtn"> + </button>
+				<span class="order-item-quantity"> 1 stycken </span>
+				<button class="order-minusBtn"> &#8211; </button>
+			</div>
+		</div>
 
 		<div class="order-payment-container">
 			<div class="order-total-container">
 				<p class="order-total"> TOTALT </p>
-				<p class="order-tax"> inkl 12% moms </p>
+				<p class="order-tax"> inkl 20% moms </p>
 			</div>
 			<p class="order-price"> 120 SEK </p>
 		</div>
 
-		<button class="take-my-money"> TAKE MY MONEY </button>
+		<button class="take-my-moneyBtn"> TAKE MY MONEY! </button>
 
+	</div>
+
+	<div class="eta hidden">
+		<div class="eta-img-container">
+			<img class="eta-wontonBox-img" src="assets/wonton_box.png" alt="box with wontons">
+		</div>
+		
+		<p class="eta-preparation"> DINA WONTONS TILLAGAS! </p>
+		<p class="eta-eta"> ETA 5 MIN </p>
+		<span class="eta-order-number"> #4KJWSDF2 </span>
+		<button class="eta-receipt"> SE KVITTO </button>
+		<button class="eta-new-order"> GÖR EN NY BESTÄLLNING </button>
 	</div>
 
 </body>

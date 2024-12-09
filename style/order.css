@@ -1,4 +1,6 @@
-
+.order > * {
+	font-family: "Noto Sans";
+}
 
 .order {
 	background-color: var(--order-bg-color);
@@ -26,6 +28,7 @@
 	align-items: center;
 	border-style: none;
 	cursor: pointer;
+	margin-bottom: 3em;
 }
 
 .order-cart {
@@ -33,23 +36,26 @@
 	height: 2.5em;
 }
 
-.order-item {
+.order-item, .order-item-last {
 	display: flex;
 	flex-direction: column;
 	width: 85vw;
-	margin-top: 2em;
-	border-bottom: 1px dotted var(--gray-bg-color);
+	margin-top: 0.5em;
+}
+
+.order-item {
+	border-bottom: 1px dotted var(--accessoryBTN-bg-color);
 }
 
 .order-item-dots {
 	flex-grow: 1;
-    border-bottom: 1.5px dotted var(--dark-bg-color);
     margin: 0 0.8em;
+	border-bottom: 2px dotted var(--dark-bg-color);
 }
 
 .order-item-name-container .order-item-name, .order-item-name-container .order-item-subtotal {
 	flex-shrink: 0;
-    font-weight: bold;
+    font-weight: 900;
 	font-size: 1.3rem;
 }
 
@@ -85,4 +91,52 @@
 }
 .order-minusBtn {
 	margin:0 0 1em 0.5em;
+}
+
+.order-payment-container {
+	display:flex;
+	width: 87vw;
+	margin: 5em 0 1.5em 0;
+	height: 5em;
+	border-radius: 0.4em;
+	align-items: center;
+	justify-content: space-between;
+	background-color: var(--plusMinusBtn-bg-color);
+	padding: 0 1em 0 1em;
+
+}
+
+.order-total-container {
+	display: flex;
+	flex-direction: column;
+}
+
+.order-total {
+	margin-bottom: 0.3em;
+	font-weight: 900;
+	font-size: 1.3rem;
+}
+
+.order-price {
+	font-weight: 900;
+	font-size: 1.8rem;
+}
+
+.take-my-moneyBtn {
+	display:flex;
+	width: 87vw;
+	height: 5em;
+	border-radius: 0.4em;
+	align-items: center;
+	justify-content: center;
+	background-color: var(--dark-bg-color);
+	color: var(--order-bg-color);
+	font-weight: 900;
+	font-size: 1.4rem;
+	cursor: pointer;
+	border-style: none;
+}
+
+.hidden {
+	display: none;
 }
