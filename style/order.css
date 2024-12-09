@@ -18,7 +18,7 @@
 	padding-top: 0.7em;
 }
 
-.order-cartBTN-container {
+.order-cartBTN {
 	background-color: var(--light-color);
 	width: 4em;
 	height: 4em;
@@ -36,11 +36,16 @@
 	height: 2.5em;
 }
 
-.order-item, .order-item-last {
+.order-item, .order-item-last, .order-item-last-drink {
 	display: flex;
 	flex-direction: column;
 	width: 85vw;
 	margin-top: 0.5em;
+	
+}
+
+.order-item-last-drink {
+	margin-bottom: 2em;
 }
 
 .order-item {
@@ -98,7 +103,7 @@
 	width: 87vw;
 	margin: 5em 0 1.5em 0;
 	height: 5em;
-	border-radius: 0.4em;
+	border-radius: 0.3em;
 	align-items: center;
 	justify-content: space-between;
 	background-color: var(--plusMinusBtn-bg-color);
@@ -122,11 +127,11 @@
 	font-size: 1.8rem;
 }
 
-.take-my-moneyBtn {
+.paymentBtn {
 	display:flex;
 	width: 87vw;
-	height: 5em;
-	border-radius: 0.4em;
+	height: 4em;
+	border-radius: 0.3em;
 	align-items: center;
 	justify-content: center;
 	background-color: var(--dark-bg-color);

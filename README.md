@@ -20,3 +20,5 @@ frågor?
 
 
 1.fredag, lördag - html/css main
+2. söndag - klar med html och css i alla flik och började med javascript
+3. måndag skapade KVITTO flik, görde function att dölja eller öppna flikar
