@@ -1,0 +1,120 @@
+.receipt > * {
+	font-family: "Noto Sans";
+}
+
+.receipt {
+	background-color: var(--gray-bg-color);
+	height: 100vh;
+	color: var(--dark-bg-color);
+	display: flex;
+	flex-direction: column;
+	margin: 1em;
+}
+
+.receipt-container {
+	background-color: var(--order-bg-color);
+	display: flex;
+	flex-direction: column;
+	padding: 0 1em 2em 1em;
+	margin-top: 2em;
+	border-top-left-radius: 0.3em;
+	border-top-right-radius: 0.3em;
+}
+
+.receipt-nest4-img-container {
+	display: flex;
+	justify-content: center;
+	padding-top: 2em;
+	flex-direction: column;
+	align-items: center;
+}
+
+.receipt-logo {
+	width: 4em;
+	height: 4.5em;
+}
+
+.receipt-h2 {
+	font-weight: 800;
+	font-size: 1.8rem;
+}
+
+.receipt-order-number {
+	font-weight: 800;
+	color: var(--gray-bg-color);
+}
+
+.receipt-item, .receipt-item-last {
+	display: flex;
+	flex-direction: column;
+	margin-top: 1em;
+}
+
+.receipt-item-dots {
+	flex-grow: 1;
+    margin: 0 0.8em;
+	border-bottom: 2px dotted var(--dark-bg-color);
+}
+
+.receipt-item-name-container .receipt-item-name, .receipt-item-name-container .receipt-item-subtotal {
+	flex-shrink: 0;
+    font-weight: 900;
+	font-size: 1.3rem;
+}
+
+.receipt-item-name-container {
+	display: flex;
+}
+
+.receipt-item-quantity, .receipt-tax {
+	font-weight: bold;
+	color: var(--gray-bg-color)
+}
+
+.receipt-payment-container {
+	display:flex;
+	margin-bottom: 3em;
+	height: 5em;
+	border-bottom-left-radius: 0.3em;
+	border-bottom-right-radius: 0.3em;
+	align-items: center;
+	justify-content: space-between;
+	background-color: var(--plusMinusBtn-bg-color);
+	padding: 1em;
+
+}
+
+.receipt-total-container {
+	display: flex;
+	flex-direction: column;
+}
+
+.receipt-total {
+	margin-bottom: 0.3em;
+	font-weight: 900;
+	font-size: 1.3rem;
+}
+
+.receipt-price {
+	font-weight: 900;
+	font-size: 1.8rem;
+}
+
+.receipt-new-orderBtn {
+	display:flex;
+	height: 4em;
+	border-radius: 0.4em;
+	align-items: center;
+	justify-content: center;
+	background-color: var(--dark-bg-color);
+	color: var(--eta-text-color);
+	font-weight: 900;
+	font-size: 1.4rem;
+	cursor: pointer;
+	border-style: none;
+	
+}
+
+.hidden {
+	display: none;
+}

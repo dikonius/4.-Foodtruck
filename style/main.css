@@ -1,0 +1,166 @@
+
+
+* {
+	box-sizing: border-box; margin: 0; padding: 0;
+}
+
+body {
+	font-family: "Fira Mono";
+	background-color: #489078;
+	max-width: 640px;
+	margin: auto;
+}
+
+.menu {
+	height: 100vh;
+	color: var(--light-color);
+	display: flex;
+	flex-direction: column;
+	margin: 1em;
+}
+
+.menu-h1 {
+	align-self: flex-start;
+	margin: 0.5em 0 0.2em 0.5em;
+	font-size: 1.9rem;
+
+}
+
+.menu-nest4-cart-container {
+	display: flex;
+	justify-content: end;
+	flex-direction: row;
+	margin-bottom: 1em;
+}
+
+.menu-cartBTN {
+	background-color: var(--light-color);
+	width: 4em;
+	height: 4em;
+	border-radius: 0.3em;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	border-style: none;
+	cursor: pointer;
+	align-self: flex-start;
+}
+
+.menu-cart {
+	width: 2.3em;
+	height: 2.3em;
+}
+
+.menu-badge {
+	display: flex;
+	width: 2.3em;
+	height: 2.3em;
+	border-radius: 50%;
+	background-color: #eb5757;
+	position: relative;
+	bottom: 1em;
+	left: 6.2em;
+	font-size: 0.6rem;
+	justify-content: center;
+	align-items: center;
+
+}
+
+.menu-items {
+	display: flex;
+	flex-direction: column;
+	border-radius: 0.5em;
+	background-color: var(--gray-bg-color);
+}
+
+.menu-items > :first-child {
+	border-top-left-radius: 0.5em;
+	border-top-right-radius: 0.5em;
+}
+
+.menu-items > :last-child {
+	border-bottom-left-radius: 0.5em;
+	border-bottom-right-radius: 0.5em;
+}
+
+.menu-item-btn {
+	background-color: var(--gray-bg-color);
+	color: var(--light-color);
+	height: 6em;
+	padding: 1em;
+	cursor: pointer;
+	border-style: none;
+	border-bottom: 0.1em dotted rgb(138, 126, 126);
+	transition: all;
+	transition-duration: 0.5s;
+}
+
+.menu-item-btn:hover, .menu-dip-btn:hover, .menu-drink-btn:hover {
+	background-color: var(--dark-bg-color);
+}
+
+.menu-item-dots {
+	flex-grow: 1;
+    border-bottom: 1.5px dotted var(--light-color);
+    margin: 0 0.8em;
+}
+
+.menu-item-btn .menu-item-name-price, .menu-dip-name-container .menu-item-name-price, .menu-drinks-name-container .menu-item-name-price {
+	flex-shrink: 0;
+    font-weight: bold;
+	font-size: 1.2rem;
+}
+
+.menu-item-name-container {
+	display: flex;
+	margin-bottom: 0.5em;
+}
+
+.menu-item-ingredients {
+	text-align: start;
+	font-weight: bold;
+}
+
+.menu-dips, .menu-drinks {
+	display: flex;
+	flex-direction: column;
+	height: fit-content;
+	border-radius: 0.5em;
+	background-color: var(--gray-bg-color);
+	margin-top: 1em;
+	color: var(--light-color);
+	padding: 1em;
+
+}
+
+.menu-dip-name-container, .menu-drinks-name-container {
+	display: flex;
+	margin-bottom: 1em;
+}
+
+.menu-dipbtn-upper-container, .menu-drinkbtn-upper-container {
+	display: flex;
+	margin-bottom: 1em;
+	flex-wrap: wrap;
+	gap: 1em;
+}
+
+.menu-dip-btn, .menu-drink-btn {
+	display: flex;
+	background-color: var(--accessoryBTN-bg-color);
+	color: var(--light-color);
+	height: 2em;
+	padding: 1em;
+	cursor: pointer;
+	border-style: none;
+	border-radius: 0.3em;
+	align-items: center;
+	justify-content: center;
+	font-weight: bold;
+	transition: all;
+	transition-duration: 0.5s;
+}
+
+.hidden {
+	display: none;
+}

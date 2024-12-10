@@ -6,13 +6,298 @@
 
 	<title> Foodtruck </title>
 
-	<link rel="stylesheet" href="style/main.css">
+	<link rel="preconnect" href="https://fonts.googleapis.com">
+	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+	<link href="https://fonts.googleapis.com/css2?family=Noto+Sans:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
 
-	<script type="module" src="javascript/scritp.js"></script>
+	<link rel="preconnect" href="https://fonts.googleapis.com">
+	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+	<link href="https://fonts.googleapis.com/css2?family=Chewy&family=Fira+Mono:wght@400;500;700&display=swap" rel="stylesheet">
+
+	<link rel="stylesheet" href="style/main.css">
+	<link rel="stylesheet" href="style/order.css">
+	<link rel="stylesheet" href="style/variables.css">
+	<link rel="stylesheet" href="style/eta.css">
+	<link rel="stylesheet" href="style/receipt.css">
+
+	<script type="module" src="javascript/tabs_show_hide.js"></script>
 
 
 </head>
 <body>
 	
+	<section class="menu">
+		<div class="menu-nest4-cart-container">
+			<span class="menu-badge"> 10 </span>
+			<button class="menu-cartBTN">
+				<img class="menu-cart" src="assets/cart.png" alt="shopping_cart">
+			</button>
+		</div>
+		<h1 class="menu-h1"> MENY </h1>
+
+		<div class="menu-items">
+			<button class="menu-item-btn">
+				<div class="menu-item-name-container">
+					<p class="menu-item-name-price"> KARLSTAD </p>
+					<span class="menu-item-dots"></span>
+					<p class="menu-item-name-price"> 9 SEK </p>
+				</div>
+				<p class="menu-item-ingredients"> kantarell, scharlottenlök, morot, bladpersilja </p>
+			</button>
+			<button class="menu-item-btn">
+				<div class="menu-item-name-container">
+					<p class="menu-item-name-price"> BANGKOK </p>
+					<span class="menu-item-dots"></span>
+					<p class="menu-item-name-price"> 9 SEK </p>
+				</div>
+				<p class="menu-item-ingredients"> morot, salladslök, chili, kokos, lime, koriander </p>
+			</button>
+			<button class="menu-item-btn">
+				<div class="menu-item-name-container">
+					<p class="menu-item-name-price"> HO CHI MINH </p>
+					<span class="menu-item-dots"></span>
+					<p class="menu-item-name-price"> 9 SEK </p>
+				</div>
+				<p class="menu-item-ingredients"> kål, salladslök, chili, vitlök, ingefära, tofu </p>
+			</button>
+			<button class="menu-item-btn">
+				<div class="menu-item-name-container">
+					<p class="menu-item-name-price"> PARIS </p>
+					<span class="menu-item-dots"></span>
+					<p class="menu-item-name-price"> 9 SEK </p>
+				</div>
+				<p class="menu-item-ingredients"> kål, chevré, honung, basilika, valnötspasta </p>
+			</button>
+			<button class="menu-item-btn">
+				<div class="menu-item-name-container">
+					<p class="menu-item-name-price"> OAXACA </p>
+					<span class="menu-item-dots"></span>
+					<p class="menu-item-name-price"> 9 SEK </p>
+				</div>
+				<p class="menu-item-ingredients"> majs, tomat, rostade ärtor, vitlök, lime </p>
+			</button>
+		</div>
+
+		<div class="menu-dips">
+			<div class="menu-dip-name-container">
+				<p class="menu-item-name-price"> DIPSÅS </p>
+				<span class="menu-item-dots"></span>
+				<p class="menu-item-name-price"> 19 SEK </p>
+			</div>
+			
+			<div class="menu-dipbtn-upper-container">
+				<button class="menu-dip-btn"> sweet chili </button>
+				<button class="menu-dip-btn"> wonton std </button>
+				<button class="menu-dip-btn"> sweet & sour </button>
+				<button class="menu-dip-btn"> hot mango </button>
+				<button class="menu-dip-btn"> chili mayo </button>
+				<button class="menu-dip-btn"> guacamole </button>
+			</div>
+		
+		</div>
+
+		<div class="menu-drinks">
+			<div class="menu-drinks-name-container">
+				<p class="menu-item-name-price"> DRICKA </p>
+				<span class="menu-item-dots"></span>
+				<p class="menu-item-name-price"> 19 SEK </p>
+			</div>
+			
+			<div class="menu-drinkbtn-upper-container">
+				<button class="menu-drink-btn"> Fanta Orange </button>
+				<button class="menu-drink-btn"> Fanta Exotic </button>
+				<button class="menu-drink-btn"> Coca Cola </button>
+				<button class="menu-drink-btn"> Sprite </button>
+				<button class="menu-drink-btn"> LOKA Granatäpple </button>
+				<button class="menu-drink-btn"> LOKA Citrus </button>
+			</div>
+
+		</div>
+
+	</section>
+
+	<div class="order hidden">
+		<div class="order-nest4-cart-container">
+			<button class="order-cartBTN">
+				<img class="order-cart" src="assets/cart.png" alt="shopping_cart">
+			</button>
+		</div>
+
+		<div class="order-item">
+			<div class="order-item-name-container">
+				<p class="order-item-name"> KARLSTAD </p>
+				<span class="order-item-dots"></span>
+				<p class="order-item-subtotal"> 27 SEK </p>
+			</div>
+			<div class="order-btn-container">
+				<button class="order-plusBtn"> + </button>
+				<span class="order-item-quantity"> 3 stycken </span>
+				<button class="order-minusBtn"> &#8211; </button>
+			</div>
+		</div>
+		<div class="order-item">
+			<div class="order-item-name-container">
+				<p class="order-item-name"> HO CHI MINH </p>
+				<span class="order-item-dots"></span>
+				<p class="order-item-subtotal"> 18 SEK </p>
+			</div>
+			<div class="order-btn-container">
+				<button class="order-plusBtn"> + </button>
+				<span class="order-item-quantity"> 2 stycken </span>
+				<button class="order-minusBtn"> &#8211; </button>
+			</div>
+		</div>
+		<div class="order-item">
+			<div class="order-item-name-container">
+				<p class="order-item-name"> KINGSTON </p>
+				<span class="order-item-dots"></span>
+				<p class="order-item-subtotal"> 18 SEK </p>
+			</div>
+			<div class="order-btn-container">
+				<button class="order-plusBtn"> + </button>
+				<span class="order-item-quantity"> 2 stycken </span>
+				<button class="order-minusBtn"> &#8211; </button>
+			</div>
+		</div>
+		<div class="order-item">
+			<div class="order-item-name-container">
+				<p class="order-item-name"> SWEET CHILI DIP </p>
+				<span class="order-item-dots"></span>
+				<p class="order-item-subtotal"> 19 SEK </p>
+			</div>
+			<div class="order-btn-container">
+				<button class="order-plusBtn"> + </button>
+				<span class="order-item-quantity"> 1 stycken </span>
+				<button class="order-minusBtn"> &#8211; </button>
+			</div>
+		</div>
+		<div class="order-item">
+			<div class="order-item-name-container">
+				<p class="order-item-name"> GUACAMOLE </p>
+				<span class="order-item-dots"></span>
+				<p class="order-item-subtotal"> 19 SEK </p>
+			</div>
+			<div class="order-btn-container">
+				<button class="order-plusBtn"> + </button>
+				<span class="order-item-quantity"> 1 stycken </span>
+				<button class="order-minusBtn"> &#8211; </button>
+			</div>
+		</div>
+		<div class="order-item-last">
+			<div class="order-item-name-container">
+				<p class="order-item-name"> FANTA ORANGE </p>
+				<span class="order-item-dots"></span>
+				<p class="order-item-subtotal"> 19 SEK </p>
+			</div>
+			<div class="order-btn-container">
+				<button class="order-plusBtn"> + </button>
+				<span class="order-item-quantity"> 1 stycken </span>
+				<button class="order-minusBtn"> &#8211; </button>
+			</div>
+		</div>
+
+		<div class="order-payment-container">
+			<div class="order-total-container">
+				<p class="order-total"> TOTALT </p>
+				<p class="order-tax"> inkl 20% moms </p>
+			</div>
+			<p class="order-price"> 120 SEK </p>
+		</div>
+
+		<button class="paymentBtn"> TAKE MY MONEY! </button>
+
+	</div>
+
+	<div class="eta hidden">
+		<div class="eta-img-container">
+			<img class="eta-wontonBox-img" src="assets/wonton_box.png" alt="box with wontons">
+		</div>
+		
+		<p class="eta-preparation"> DINA WONTONS TILLAGAS! </p>
+		<p class="eta-eta"> ETA 5 MIN </p>
+		<span class="eta-order-number"> #4KJWSDF2 </span>
+		<button class="eta-receiptBtn"> SE KVITTO </button>
+		<button class="eta-new-orderBtn"> GÖR EN NY BESTÄLLNING </button>
+	</div>
+
+	<section class="receipt hidden">
+		<div class="receipt-container">
+			<div class="receipt-nest4-img-container">
+				<img class="receipt-logo" src="assets/logo.png" alt="company_logo">
+				<h2 class="receipt-h2"> KVITTO </h2>
+				<span class="receipt-order-number"> #4KJWSDF2 </span>
+			</div>
+	
+			<div class="receipt-item">
+				<div class="receipt-item-name-container">
+					<p class="receipt-item-name"> KARLSTAD </p>
+					<span class="receipt-item-dots"></span>
+					<p class="receipt-item-subtotal"> 27 SEK </p>
+				</div>
+				<div class="receipt-btn-container">
+					<span class="receipt-item-quantity"> 3 stycken </span>
+				</div>
+			</div>
+			<div class="receipt-item">
+				<div class="receipt-item-name-container">
+					<p class="receipt-item-name"> HO CHI MINH </p>
+					<span class="receipt-item-dots"></span>
+					<p class="receipt-item-subtotal"> 18 SEK </p>
+				</div>
+				<div class="receipt-btn-container">
+					<span class="receipt-item-quantity"> 2 stycken </span>
+				</div>
+			</div>
+			<div class="receipt-item">
+				<div class="receipt-item-name-container">
+					<p class="receipt-item-name"> KINGSTON </p>
+					<span class="receipt-item-dots"></span>
+					<p class="receipt-item-subtotal"> 18 SEK </p>
+				</div>
+				<div class="receipt-btn-container">
+					<span class="receipt-item-quantity"> 2 stycken </span>
+				</div>
+			</div>
+			<div class="receipt-item">
+				<div class="receipt-item-name-container">
+					<p class="receipt-item-name"> SWEET CHILI DIP </p>
+					<span class="receipt-item-dots"></span>
+					<p class="receipt-item-subtotal"> 19 SEK </p>
+				</div>
+				<div class="receipt-btn-container">
+					<span class="receipt-item-quantity"> 1 stycken </span>
+				</div>
+			</div>
+			<div class="receipt-item">
+				<div class="receipt-item-name-container">
+					<p class="receipt-item-name"> GUACAMOLE </p>
+					<span class="receipt-item-dots"></span>
+					<p class="receipt-item-subtotal"> 19 SEK </p>
+				</div>
+				<div class="receipt-btn-container">
+					<span class="receipt-item-quantity"> 1 stycken </span>
+				</div>
+			</div>
+			<div class="receipt-item">
+				<div class="receipt-item-name-container">
+					<p class="receipt-item-name"> FANTA ORANGE </p>
+					<span class="receipt-item-dots"></span>
+					<p class="receipt-item-subtotal"> 19 SEK </p>
+				</div>
+				<div class="receipt-btn-container">
+					<span class="receipt-item-quantity"> 1 stycken </span>
+				</div>
+			</div>
+		</div>
+		<div class="receipt-payment-container">
+			<div class="receipt-total-container">
+				<p class="receipt-total"> TOTALT </p>
+				<p class="receipt-tax"> inkl 20% moms </p>
+			</div>
+			<p class="receipt-price"> 120 SEK </p>
+		</div>
+		<button class="receipt-new-orderBtn"> GÖR EN NY BESTÄLLNING </button>
+	</section>
+
 </body>
 </html>

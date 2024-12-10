@@ -1,0 +1,80 @@
+.eta > * {
+	font-family: "Noto Sans";
+}
+
+.eta {
+	background-color: var(--gray-bg-color);
+	height: 100vh;
+	color: var(--eta-text-color);
+	display: flex;
+	flex-direction: column;
+	margin: 1em;
+}
+
+.eta-img-container {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	margin: 6em 0 1em 0;
+}
+
+.eta-wontonBox-img {
+	width: 23em;
+	height: 23em;
+}
+
+.eta-preparation {
+	font-weight: 900;
+	font-size: 2rem;
+	text-align: center;
+	margin-bottom: 1em;
+}
+
+.eta-eta {
+	font-weight: 600;
+	font-size: 1.6rem;
+	text-align: center;
+	margin-bottom: 1em;
+}
+
+.eta-order-number {
+	margin-bottom: 3em;
+	font-weight: 600;
+	align-self: center;
+}
+
+
+
+.eta-receiptBtn {
+	display:flex;
+	height: 4em;
+	border-radius: 0.4em;
+	align-items: center;
+	justify-content: center;
+	background-color: var(--gray-bg-color);
+	color: var(--eta-receiptBtn-color);
+	font-weight: 900;
+	font-size: 1.4rem;
+	cursor: pointer;
+	border-style: none;
+	border: 0.15em solid var(--plusMinusBtn-bg-color);
+	margin-bottom: 1em;
+}
+
+.eta-new-orderBtn {
+	display:flex;
+	height: 4em;
+	border-radius: 0.4em;
+	align-items: center;
+	justify-content: center;
+	background-color: var(--dark-bg-color);
+	color: var(--eta-text-color);
+	font-weight: 900;
+	font-size: 1.4rem;
+	cursor: pointer;
+	border-style: none;
+}
+
+.hidden {
+	display: none;
+}
