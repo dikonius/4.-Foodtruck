@@ -8,14 +8,14 @@
 	color: var(--eta-text-color);
 	display: flex;
 	flex-direction: column;
-	align-items: center;
+	margin: 1em;
 }
 
 .eta-img-container {
 	display: flex;
 	justify-content: center;
 	align-items: center;
-	margin: 7em 0 1em 0;
+	margin: 6em 0 1em 0;
 }
 
 .eta-wontonBox-img {
@@ -40,11 +40,13 @@
 .eta-order-number {
 	margin-bottom: 3em;
 	font-weight: 600;
+	align-self: center;
 }
 
-.eta-receipt {
+
+
+.eta-receiptBtn {
 	display:flex;
-	width: 87vw;
 	height: 4em;
 	border-radius: 0.4em;
 	align-items: center;
@@ -61,7 +63,6 @@
 
 .eta-new-orderBtn {
 	display:flex;
-	width: 87vw;
 	height: 4em;
 	border-radius: 0.4em;
 	align-items: center;

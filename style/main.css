@@ -6,15 +6,17 @@
 
 body {
 	font-family: "Fira Mono";
+	background-color: #489078;
+	max-width: 640px;
+	margin: auto;
 }
 
 .menu {
-	background-color: #489078;
 	height: 100vh;
 	color: var(--light-color);
 	display: flex;
 	flex-direction: column;
-	align-items: center;
+	margin: 1em;
 }
 
 .menu-h1 {
@@ -26,9 +28,9 @@ body {
 
 .menu-nest4-cart-container {
 	display: flex;
-	width: 94vw;
 	justify-content: end;
-	padding-top: 0.7em;
+	flex-direction: row;
+	margin-bottom: 1em;
 }
 
 .menu-cartBTN {
@@ -41,6 +43,7 @@ body {
 	align-items: center;
 	border-style: none;
 	cursor: pointer;
+	align-self: flex-start;
 }
 
 .menu-cart {
@@ -66,8 +69,6 @@ body {
 .menu-items {
 	display: flex;
 	flex-direction: column;
-	width: 94vw;
-	height: 25em;
 	border-radius: 0.5em;
 	background-color: var(--gray-bg-color);
 }
@@ -94,7 +95,7 @@ body {
 	transition-duration: 0.5s;
 }
 
-.menu-item-btn:active, .menu-dip-btn:active, .menu-drink-btn:active {
+.menu-item-btn:hover, .menu-dip-btn:hover, .menu-drink-btn:hover {
 	background-color: var(--dark-bg-color);
 }
 
@@ -123,8 +124,7 @@ body {
 .menu-dips, .menu-drinks {
 	display: flex;
 	flex-direction: column;
-	width: 94vw;
-	height: 9em;
+	height: fit-content;
 	border-radius: 0.5em;
 	background-color: var(--gray-bg-color);
 	margin-top: 1em;
@@ -140,13 +140,9 @@ body {
 
 .menu-dipbtn-upper-container, .menu-drinkbtn-upper-container {
 	display: flex;
-	justify-content: space-between;
 	margin-bottom: 1em;
-}
-
-.menu-dipbtn-lower-container, .menu-drinkbtn-lower-container {
-	display: flex;
-	justify-content: space-between;
+	flex-wrap: wrap;
+	gap: 1em;
 }
 
 .menu-dip-btn, .menu-drink-btn {
