@@ -42,9 +42,9 @@
 	
 }
 
-.order-item-last {
+/* .order-item-last {
 	margin-bottom: 2em;
-}
+} */
 
 .order-item {
 	border-bottom: 1px dotted var(--accessoryBTN-bg-color);
