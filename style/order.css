@@ -4,7 +4,7 @@
 
 .order {
 	background-color: var(--order-bg-color);
-	height: 100vh;
+	/* height: 100vh; */
 	color: var(--dark-bg-color);
 	display: flex;
 	flex-direction: column;
@@ -29,6 +29,12 @@
 	border-style: none;
 	cursor: pointer;
 	margin-bottom: 3em;
+	transition: all;
+	transition-duration: 1s;
+}
+
+.order-cartBTN:hover {
+	border: 3px solid var(--plusMinusBtn-bg-color)
 }
 
 .order-cart {
@@ -36,17 +42,25 @@
 	height: 2.5em;
 }
 
-.order-item, .order-item-last {
+.order-item {
+	display: flex;
+	flex-direction: column;
+	
+	
+}
+
+.order-item-container {
 	display: flex;
 	flex-direction: column;
 	
 }
 
-/* .order-item-last {
-	margin-bottom: 2em;
-} */
+.order-btn-container {
+	display: flex;
+	/* align-items: baseline; */
+}
 
-.order-item {
+.order-item-container:not(:last-of-type) {
 	border-bottom: 1px dotted var(--accessoryBTN-bg-color);
 }
 
@@ -71,11 +85,6 @@
 	font-weight: bold;
 }
 
-.order-btn-container {
-	display: flex;
-	align-items: baseline;
-}
-
 .order-plusBtn, .order-minusBtn {
 	height: 1.5em;
 	width: 1.5em;
@@ -87,6 +96,14 @@
 	display: flex;
 	justify-content: center;
 	align-items: center;
+	transition: all;
+	transition-duration: 0.5s;
+	cursor: pointer;
+}
+
+.order-plusBtn:hover, .order-minusBtn:hover {
+	background-color: var(--dark-bg-color);
+	color:white;
 }
 
 .order-plusBtn {
@@ -136,6 +153,13 @@
 	font-size: 1.4rem;
 	cursor: pointer;
 	border-style: none;
+	transition: border 1s;
+	
+}
+
+.paymentBtn:hover {
+	border: 0.4em solid var(--accessoryBTN-bg-color);
+	
 }
 
 .hidden {

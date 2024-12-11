@@ -11,6 +11,7 @@ const orderTab = document.querySelector(`.order`)
 const wontonBoxTab = document.querySelector(`.eta`)
 const receiptTab = document.querySelector(`.receipt`)
 const bodyElement = document.querySelector(`body`)
+const regMenuButton = document.querySelector(`#button-menu`)
 
 
 // ---------------show or hide TABs---------------
@@ -46,3 +47,7 @@ receiptNewOrderButton.addEventListener("click", () => {
 	menuTab.classList.remove(`hidden`)
 	bodyElement.style.backgroundColor = "#489078"
 })
+// regMenuButton.addEventListener("click", () => {
+// 	menuTab.classList.remove(`hidden`)
+// })
+

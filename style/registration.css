@@ -1,0 +1,46 @@
+.registration {
+	display: flex;
+	flex-direction: column;
+	height: 50vh;
+	margin: 1em;
+	text-align: center;
+	background-color: var(--light-color);
+	border-radius: 0.4em;
+	padding:1em;
+}
+
+.registration-h2 {
+	color: crimson;
+	font-size: 2rem;
+}
+
+#button-api-key, #button-tenant, #button-menu {
+	margin-top: 2em;
+	height: 3em;
+	border-radius: 0.4em;
+	border-style: none;
+	font-weight: bold;
+	font-size: 1.3rem;
+	cursor: pointer;
+	transition: all;
+	transition-duration: 0.5s;
+}
+
+#button-api-key {
+	background-color: lightblue;
+}
+#button-tenant {
+	background-color: lightpink;
+}
+#button-menu {
+	background-color: lightgoldenrodyellow;
+}
+#button-api-key:hover {
+	background-color: rgb(38, 96, 243);
+}
+#button-tenant:hover {
+	background-color: rgb(240, 28, 57);
+}
+#button-menu:hover {
+	background-color: rgb(221, 221, 22);
+}

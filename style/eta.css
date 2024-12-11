@@ -4,7 +4,7 @@
 
 .eta {
 	background-color: var(--gray-bg-color);
-	height: 100vh;
+	/* height: 100vh; */
 	color: var(--eta-text-color);
 	display: flex;
 	flex-direction: column;
