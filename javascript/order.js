@@ -1,6 +1,3 @@
-
-import { wontons, dips, drinks } from './api_data.js'
-
 const orderContainer = document.querySelector('.order')
 const orderItemContainer = orderContainer.querySelector('.order-item')
 const orderPriceElement = orderContainer.querySelector('.order-price')

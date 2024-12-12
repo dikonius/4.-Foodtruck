@@ -1,49 +1,40 @@
-import {wontons} from "./api_data.js"
-import {dips} from "./api_data.js"
-import {drinks} from "./api_data.js"
 
+export function renderMenu(menuData) {
+    const menuWontonContainer = document.getElementById("wonton-container")
+    const menuDipsContainer = document.getElementById("dips-container")
+    const menuDrinksContainer = document.getElementById("drinks-container")
+	const dipPrice = document.getElementById("dipPrice")
+	const drinkPrice = document.getElementById("drinkPrice")
 
-// --------------------------Menu----------------------
-// ------------------------Wontons--------------------
-// ----getting container where buttons will be appended--------
-const menuWontonContainer = document.querySelector('.menu-items')
+    menuData.forEach(item => {
+        const button = document.createElement('button')
+        button.classList.add('menu-item-btn')
 
-// ----doing for loop through the group of items we dclared and populate the HTML structure
-wontons.forEach(item => {
-    const button = document.createElement('button')
-    button.classList.add('menu-item-btn')
-	button.innerHTML = `
-        <div class="menu-item-name-container">
-            <p class="menu-item-name-price">${item.name}</p>
-            <span class="menu-item-dots"></span>
-            <p class="menu-item-name-price">${item.price} SEK</p>
-        </div>
-        <p class="menu-item-ingredients">${item.ingredients.join(', ')}</p>
-    `
-	menuWontonContainer.appendChild(button)
-})
+        // render wontons
+        if (item.type === 'wonton') {
+            button.innerHTML = `
+                <div class="menu-item-name-container">
+                    <p class="menu-item-name-price">${item.name}</p>
+                    <span class="menu-item-dots"></span>
+                    <p class="menu-item-name-price">${item.price} SEK</p>
+                </div>
+                <p class="menu-item-ingredients">${item.ingredients.join(', ')}</p>
+            `
+            menuWontonContainer.appendChild(button)
 
-// ----------------------------dips-------------------------------
+        // render dips
+        } else if (item.type === 'dip') {
+            button.classList.add('menu-dip-btn')
+            button.textContent = `${item.name}`
+            menuDipsContainer.appendChild(button)
+			dipPrice.innerHTML = `${item.price}` + " SEK"
 
-const menuDipContainer = document.querySelector('.menu-dipbtn-upper-container')
-const dipPrice = document.getElementById(`dipPrice`)
-
-dips.forEach(item => {
-    const button = document.createElement('button')
-    button.classList.add('menu-dip-btn')
-	button.innerHTML = `${item.name}`
-	dipPrice.innerHTML = `${item.price}` + " SEK"
-	menuDipContainer.appendChild(button)
-})
-
-// ------------------------drinks--------------------------------
-const menuDrinkContainer = document.querySelector('.menu-drinkbtn-upper-container')
-const drinkPrice = document.getElementById(`drinkPrice`)
-
-drinks.forEach(item => {
-    const button = document.createElement('button')
-    button.classList.add('menu-drink-btn')
-	button.innerHTML = `${item.name}`
-	drinkPrice.innerHTML = `${item.price}` + " SEK"
-	menuDrinkContainer.appendChild(button)
-})
+        // render drinks
+        } else if (item.type === 'drink') {
+            button.classList.add('menu-drink-btn')
+            button.textContent = `${item.name}`
+			drinkPrice.innerHTML = `${item.price}` + " SEK"
+            menuDrinksContainer.appendChild(button)
+        }
+    })
+}
