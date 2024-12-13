@@ -60,9 +60,9 @@
 import { renderMenu } from './menu.js';
 import { attachMenuEventListeners } from './order.js'; // Use this for adding events
 
-const apiUrl = 'https://fdnzawlcf6.execute-api.eu-north-1.amazonaws.com';
-const apiKey = 'yum-PxtRFopRoKZwir25';
-const tenant = "suae";
+export const apiUrl = 'https://fdnzawlcf6.execute-api.eu-north-1.amazonaws.com';
+export const apiKey = 'yum-PxtRFopRoKZwir25';
+export const tenant = "suae";
 
 async function fetchMenu() {
     try {
