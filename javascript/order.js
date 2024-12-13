@@ -1,21 +1,26 @@
-const orderContainer = document.querySelector('.order')
-const orderItemContainer = orderContainer.querySelector('.order-item')
-const orderPriceElement = orderContainer.querySelector('.order-price')
+import { updateBadge } from './notification_badge.js';
 
-let cart = [] // Creating list to store products
+const orderContainer = document.querySelector('.order');
+const orderItemContainer = orderContainer.querySelector('.order-item');
+const orderPriceElement = orderContainer.querySelector('.order-price');
 
-// Creating a function to render the order tab
+let cart = [];
+
 function renderOrderTab() {
-    orderItemContainer.innerHTML = ''
-
-    let totalPrice = 0
+    orderItemContainer.innerHTML = '';
+    let totalPrice = 0;
 
     cart.forEach((item, index) => {
-        const itemSubtotal = item.price * item.quantity
-        totalPrice = totalPrice + itemSubtotal
+        if (!item || !item.name || typeof item.price !== 'number') {
+            console.warn('Skipping invalid cart item:', item);
+            return;
+        }
 
-        const orderItem = document.createElement('div')
-        orderItem.classList.add('order-item-container')
+        const itemSubtotal = item.price * item.quantity;
+        totalPrice += itemSubtotal;
+
+        const orderItem = document.createElement('div');
+        orderItem.classList.add('order-item-container');
         orderItem.innerHTML = `
             <div class="order-item-name-container">
                 <p class="order-item-name">${item.name}</p>
@@ -27,60 +32,74 @@ function renderOrderTab() {
                 <span class="order-item-quantity">${item.quantity} stycken</span>
                 <button class="order-minusBtn" data-index="${index}">&#8211;</button>
             </div>
-        `
+        `;
+        orderItemContainer.appendChild(orderItem);
+    });
 
-        orderItemContainer.appendChild(orderItem)
-    })
-
-    orderPriceElement.textContent = `${totalPrice} SEK`
+    orderPriceElement.textContent = isNaN(totalPrice) ? '0 SEK' : `${totalPrice} SEK`;
 }
 
-// adding item to cart or update quantity
 function addToCart(item) {
-    const existingItem = cart.find(cartItem => cartItem.id === item.id)
+    if (!item || !item.id || !item.name || typeof item.price !== 'number') {
+        console.error('Invalid item attempted to be added to the cart:', item);
+        return;
+    }
+
+    const existingItem = cart.find(cartItem => cartItem.id === item.id);
 
     if (existingItem) {
-        existingItem.quantity++
+        existingItem.quantity++;
     } else {
-        cart.push({ ...item, quantity: 1 })
+        cart.push({ ...item, quantity: 1 });
     }
 
-    renderOrderTab()
+    console.log('Cart updated:', cart); // Debug log
+
+    renderOrderTab(); // Ensure this updates the DOM once
+    updateBadge(); // Trigger badge update explicitly
 }
 
-// incrreasing or decreasing number of items with +- buttons
+
+function removeItem(index) {
+    if (cart[index]) {
+        cart[index].quantity--;
+        if (cart[index].quantity <= 0) {
+            cart.splice(index, 1);
+        }
+        renderOrderTab();
+        updateBadge();
+    }
+}
+
 orderItemContainer.addEventListener('click', (event) => {
-    const button = event.target
+    const button = event.target;
 
     if (button.classList.contains('order-plusBtn')) {
-        const index = parseInt(button.dataset.index)
-        cart[index].quantity++
+        const index = parseInt(button.dataset.index, 10);
+        cart[index].quantity++;
+        renderOrderTab();
+        updateBadge();
     } else if (button.classList.contains('order-minusBtn')) {
-        const index = parseInt(button.dataset.index)
-        cart[index].quantity--
-
-        if (cart[index].quantity === 0) {
-            cart.splice(index, 1) // removing item if amount is 0
-        }
+        const index = parseInt(button.dataset.index, 10);
+        removeItem(index);
     }
+});
 
-    renderOrderTab()
-})
+function attachMenuEventListeners(menuData) {
+    menuData.forEach((item) => {
+        const button = document.querySelector(`[data-id="${item.id}"]`);
+        if (button) {
+            // Remove any existing listeners
+            const existingListener = button.dataset.listenerAttached === "true";
+            if (!existingListener) {
+                button.addEventListener('click', () => addToCart(item));
+                button.dataset.listenerAttached = "true"; // Mark as attached
+            }
+        } else {
+            console.warn('No button found for item:', item);
+        }
+    });
+}
 
 
-const menuButtons = document.querySelectorAll('.menu-item-btn')
-menuButtons.forEach((button, index) => {
-    button.addEventListener('click', () => addToCart(wontons[index]))
-})
-
-const dipButtons = document.querySelectorAll('.menu-dip-btn')
-dipButtons.forEach((button, index) => {
-    button.addEventListener('click', () => addToCart(dips[index]))
-})
-
-const drinkButtons = document.querySelectorAll('.menu-drink-btn')
-drinkButtons.forEach((button, index) => {
-    button.addEventListener('click', () => addToCart(drinks[index]))
-})
-
-export { addToCart }
+export { addToCart, attachMenuEventListeners, cart };

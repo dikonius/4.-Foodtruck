@@ -1,43 +1,68 @@
-const apiUrl = 'https://fdnzawlcf6.execute-api.eu-north-1.amazonaws.com'
-const apiKey = 'yum-PxtRFopRoKZwir25'
-const tenant = "suae"
+// const apiUrl = 'https://fdnzawlcf6.execute-api.eu-north-1.amazonaws.com';
+// const apiKey = 'yum-PxtRFopRoKZwir25';
+// const tenant = "suae";
 
+// async function fetchMenu() {
+//     try {
+//         const options = {
+//             headers: {
+//                 "x-zocom": apiKey
+//             }
+//         };
+//         const response = await fetch(apiUrl + "/menu", options);
 
-// buttonApiKey.addEventListener('click', async () => {
-// 	const options = {
-// 		method: 'POST'
-// 	}
-// 	const response = await fetch(apiUrl + '/keys', options)
-// 	const data = await response.json()
-// 	console.log('API-nyckel data:', data)
-// })
+//         if (!response.ok) {
+//             throw new Error(`HTTP error! status: ${response.status}`);
+//         }
 
+//         const data = await response.json();
+//         console.log('API data fetched:', data);
+//         return data.items;
+//     } catch (error) {
+//         console.error('fetching the menu unsuccessful:', error);
+//     }
+// }
 
-// buttonTenant.addEventListener('click', async  () => {
-// 	const options = {
-// 		method: 'POST',
-// 		body: JSON.stringify({ name: 'Dmytro Koniushenko' }),
-// 		headers: {
-// 			"Content-Type": 'application/json',
-// 			"x-zocom": apiKey
-// 		}	
-// 	}
-// 	const response = await fetch(apiUrl + '/tenants', options)
-// 	const data = await response.json()
-// 	console.log('Tenant: ', data)
-// })
+// import { renderMenu } from './menu.js';
+// import { addToCart } from './order.js';
 
-// buttonMenu.addEventListener('click', async () => {
-// 	const options = {
-// 		headers: {
-// 			"x-zocom": apiKey
-// 		}
-// 	}
-// 	const response = await fetch(apiUrl + '/menu', options)
-// 	const data = await response.json()
-// 	return data
-// })
+// async function main() {
+//     try {
+//         const menuData = await fetchMenu();
+//         if (!menuData || menuData.length === 0) {
+//             throw new Error('Menu data is empty or invalid');
+//         }
 
+//         renderMenu(menuData);
+
+//         menuData.forEach((item) => {
+//             const button = document.querySelector(`[data-id="${item.id}"]`);
+//             if (button) {
+//                 button.addEventListener('click', () => {
+//                     if (item) {
+//                         console.log('Adding to cart:', item); // Debug log
+//                         addToCart(item);
+//                     } else {
+//                         console.warn('Attempted to add an undefined item to cart.');
+//                     }
+//                 });
+//             } else {
+//                 console.warn(`Button not found for menu item with id: ${item.id}`);
+//             }
+//         });
+//     } catch (error) {
+//         console.error('Error during menu fetch or render:', error);
+//     }
+// }
+
+// main();
+
+import { renderMenu } from './menu.js';
+import { attachMenuEventListeners } from './order.js'; // Use this for adding events
+
+const apiUrl = 'https://fdnzawlcf6.execute-api.eu-north-1.amazonaws.com';
+const apiKey = 'yum-PxtRFopRoKZwir25';
+const tenant = "suae";
 
 async function fetchMenu() {
     try {
@@ -46,33 +71,32 @@ async function fetchMenu() {
                 "x-zocom": apiKey
             }
         };
-        const response = await fetch(apiUrl + "/menu", options)
+        const response = await fetch(apiUrl + "/menu", options);
 
         if (!response.ok) {
-            throw new Error(`HTTP error! status: ${response.status}`)
+            throw new Error(`HTTP error! status: ${response.status}`);
         }
 
-        const data = await response.json()
-        console.log('API data fetched:', data)
+        const data = await response.json();
+        console.log('API data fetched:', data);
         return data.items;
     } catch (error) {
-        console.error('fetching the menu unsuccessful:', error)
+        console.error('fetching the menu unsuccessful:', error);
     }
 }
-
-import { renderMenu } from './menu.js'
-import { addToCart } from './order.js'
 
 async function main() {
     try {
-        const menuData = await fetchMenu()
-        renderMenu(menuData)
+        const menuData = await fetchMenu();
+        if (!menuData || menuData.length === 0) {
+            throw new Error('Menu data is empty or invalid');
+        }
+
+        renderMenu(menuData); // Render menu items
+        attachMenuEventListeners(menuData); // Attach event listeners
     } catch (error) {
-        console.error('Error during menu fetch or render:', error)
+        console.error('Error during menu fetch or render:', error);
     }
 }
 
-// function which fetches and renders MENU
-main()
-
-addToCart()
+main();

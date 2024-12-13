@@ -1,39 +1,38 @@
-let selectedItemsCount = 0
+import { cart } from './order.js'; // Import the cart from order.js
 
-function updateBadge() {
-    const badge = document.querySelector('.menu-badge')
+export function updateBadge() {
+    const badge = document.querySelector('.menu-badge');
+    if (!badge) {
+        console.error('Badge element not found.');
+        return;
+    }
 
-    if (selectedItemsCount > 0) {
-        badge.textContent = selectedItemsCount;
-        badge.classList.remove('hidden')
+    const totalItems = cart.reduce((count, item) => count + item.quantity, 0);
+
+    console.log('Badge Update Called. Total Items:', totalItems);
+
+    if (totalItems > 0) {
+        badge.textContent = totalItems;
+        badge.classList.remove('hidden');
     } else {
-        badge.classList.add('hidden')
+        badge.classList.add('hidden');
     }
 }
 
-
-function addItem() {
-    selectedItemsCount++
-    updateBadge()
-}
-
-function removeItem() {
-    if (selectedItemsCount > 0) {
-        selectedItemsCount--
+function initializeBadgeUpdate() {
+    const orderItemContainer = document.querySelector('.order-item');
+    if (!orderItemContainer) {
+        console.error('Order item container not found.');
+        return;
     }
-    updateBadge()
+
+    const observer = new MutationObserver(() => {
+        updateBadge();
+    });
+    observer.observe(orderItemContainer, { childList: true, subtree: true });
+
+    // Update badge immediately on initialization
+    updateBadge();
 }
 
-const wontonButtons = document.querySelectorAll('.menu-item-btn').forEach(button => {
-    button.addEventListener('click', addItem)
-})
-const dipButtons = document.querySelectorAll('.menu-dip-btn').forEach(button => {
-    button.addEventListener('click', addItem)
-})
-const drinkButtons = document.querySelectorAll('.menu-drink-btn').forEach(button => {
-    button.addEventListener('click', addItem)
-})
-
-export {wontonButtons}
-export {dipButtons}
-export {drinkButtons}
+export { initializeBadgeUpdate };
