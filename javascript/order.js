@@ -101,5 +101,5 @@ function attachMenuEventListeners(menuData) {
     });
 }
 
+export { addToCart, attachMenuEventListeners, renderOrderTab, cart };
 
-export { addToCart, attachMenuEventListeners, cart };
