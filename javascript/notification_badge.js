@@ -1,38 +1,38 @@
-import { cart } from './order.js'; // Import the cart from order.js
+import { cart } from './order.js'
 
 export function updateBadge() {
-    const badge = document.querySelector('.menu-badge');
+    const badge = document.querySelector('.menu-badge')
     if (!badge) {
-        console.error('Badge element not found.');
-        return;
+        console.error('badge element was not found.')
+        return
     }
 
-    const totalItems = cart.reduce((count, item) => count + item.quantity, 0);
+    const totalItems = cart.reduce((count, item) => count + item.quantity, 0)
 
-    console.log('Badge Update Called. Total Items:', totalItems);
+    console.log('Badge Update Called. Total Items:', totalItems)
 
     if (totalItems > 0) {
-        badge.textContent = totalItems;
-        badge.classList.remove('hidden');
+        badge.textContent = totalItems
+        badge.classList.remove('hidden')
     } else {
-        badge.classList.add('hidden');
+        badge.classList.add('hidden')
     }
 }
 
 function initializeBadgeUpdate() {
-    const orderItemContainer = document.querySelector('.order-item');
+    const orderItemContainer = document.querySelector('.order-item')
     if (!orderItemContainer) {
-        console.error('Order item container not found.');
+        console.error('Order item container not found.')
         return;
     }
 
     const observer = new MutationObserver(() => {
-        updateBadge();
-    });
-    observer.observe(orderItemContainer, { childList: true, subtree: true });
+        updateBadge()
+    })
+    observer.observe(orderItemContainer, { childList: true, subtree: true })
 
-    // Update badge immediately on initialization
-    updateBadge();
+    // updating badge immidiately ater initialization
+    updateBadge()
 }
 
-export { initializeBadgeUpdate };
+export { initializeBadgeUpdate }

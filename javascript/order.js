@@ -1,26 +1,26 @@
-import { updateBadge } from './notification_badge.js';
+import { updateBadge } from './notification_badge.js'
 
-const orderContainer = document.querySelector('.order');
-const orderItemContainer = orderContainer.querySelector('.order-item');
-const orderPriceElement = orderContainer.querySelector('.order-price');
+const orderContainer = document.querySelector('.order')
+const orderItemContainer = orderContainer.querySelector('.order-item')
+const orderPriceElement = orderContainer.querySelector('.order-price')
 
-let cart = [];
+let cart = []
 
 function renderOrderTab() {
-    orderItemContainer.innerHTML = '';
-    let totalPrice = 0;
+    orderItemContainer.innerHTML = ''
+    let totalPrice = 0
 
     cart.forEach((item, index) => {
         if (!item || !item.name || typeof item.price !== 'number') {
-            console.warn('Skipping invalid cart item:', item);
-            return;
+            console.warn('Skipping invalid cart item:', item)
+            return
         }
 
-        const itemSubtotal = item.price * item.quantity;
-        totalPrice += itemSubtotal;
+        const itemSubtotal = item.price * item.quantity
+        totalPrice += itemSubtotal
 
-        const orderItem = document.createElement('div');
-        orderItem.classList.add('order-item-container');
+        const orderItem = document.createElement('div')
+        orderItem.classList.add('order-item-container')
         orderItem.innerHTML = `
             <div class="order-item-name-container">
                 <p class="order-item-name">${item.name}</p>
@@ -32,74 +32,74 @@ function renderOrderTab() {
                 <span class="order-item-quantity">${item.quantity} stycken</span>
                 <button class="order-minusBtn" data-index="${index}">&#8211;</button>
             </div>
-        `;
-        orderItemContainer.appendChild(orderItem);
-    });
+        `
+        orderItemContainer.appendChild(orderItem)
+    })
 
-    orderPriceElement.textContent = isNaN(totalPrice) ? '0 SEK' : `${totalPrice} SEK`;
+    orderPriceElement.textContent = isNaN(totalPrice) ? '0 SEK' : `${totalPrice} SEK`
 }
 
 function addToCart(item) {
     if (!item || !item.id || !item.name || typeof item.price !== 'number') {
-        console.error('Invalid item attempted to be added to the cart:', item);
-        return;
+        console.error('Invalid item attempted to be added to the cart:', item)
+        return
     }
 
-    const existingItem = cart.find(cartItem => cartItem.id === item.id);
+    const existingItem = cart.find(cartItem => cartItem.id === item.id)
 
     if (existingItem) {
-        existingItem.quantity++;
+        existingItem.quantity++
     } else {
-        cart.push({ ...item, quantity: 1 });
+        cart.push({ ...item, quantity: 1 })
     }
 
-    console.log('Cart updated:', cart); // Debug log
+    console.log('Cart updated:', cart) // debug
 
-    renderOrderTab(); // Ensure this updates the DOM once
-    updateBadge(); // Trigger badge update explicitly
+    renderOrderTab() // ensure this updates the DOM once
+    updateBadge() //  update badge explicitly
 }
 
 
 function removeItem(index) {
     if (cart[index]) {
-        cart[index].quantity--;
+        cart[index].quantity--
         if (cart[index].quantity <= 0) {
-            cart.splice(index, 1);
+            cart.splice(index, 1)
         }
-        renderOrderTab();
-        updateBadge();
+        renderOrderTab()
+        updateBadge()
     }
 }
 
 orderItemContainer.addEventListener('click', (event) => {
-    const button = event.target;
+    const button = event.target
 
     if (button.classList.contains('order-plusBtn')) {
-        const index = parseInt(button.dataset.index, 10);
-        cart[index].quantity++;
-        renderOrderTab();
-        updateBadge();
+        const index = parseInt(button.dataset.index, 10)
+        cart[index].quantity++
+        renderOrderTab()
+        updateBadge()
     } else if (button.classList.contains('order-minusBtn')) {
-        const index = parseInt(button.dataset.index, 10);
-        removeItem(index);
+        const index = parseInt(button.dataset.index, 10)
+        removeItem(index)
     }
-});
+})
 
 function attachMenuEventListeners(menuData) {
     menuData.forEach((item) => {
-        const button = document.querySelector(`[data-id="${item.id}"]`);
+        const button = document.querySelector(`[data-id="${item.id}"]`)
         if (button) {
-            // Remove any existing listeners
-            const existingListener = button.dataset.listenerAttached === "true";
+            // removing any existing listeners
+            const existingListener = button.dataset.listenerAttached === "true"
             if (!existingListener) {
                 button.addEventListener('click', () => addToCart(item));
-                button.dataset.listenerAttached = "true"; // Mark as attached
+                button.dataset.listenerAttached = "true" // mark as attached
             }
         } else {
-            console.warn('No button found for item:', item);
+            console.warn('No button found for item:', item)
         }
-    });
+    })
 }
 
-export { addToCart, attachMenuEventListeners, renderOrderTab, cart };
+export { addToCart, attachMenuEventListeners, renderOrderTab, cart }
 

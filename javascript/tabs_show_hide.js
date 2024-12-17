@@ -1,8 +1,6 @@
-import { cart } from './order.js'; // Import the cart
-import { renderOrderTab } from './order.js'; // Import the render function
+import { cart } from './order.js'
+import { renderOrderTab } from './order.js'
 import { initializeBadgeUpdate } from './notification_badge.js'
-
-//----------- Variables declaration-------------
 
 
 const menuCartButton = document.querySelector(`.menu-cartBTN`)
@@ -17,8 +15,6 @@ const wontonBoxTab = document.querySelector(`.eta`)
 const receiptTab = document.querySelector(`.receipt`)
 const bodyElement = document.querySelector(`body`)
 
-
-// ---------------show or hide TABs---------------
 
 menuCartButton.addEventListener("click", () => {
 	menuTab.classList.add(`hidden`)
@@ -41,42 +37,31 @@ receiptButton.addEventListener("click", () => {
 	wontonBoxTab.classList.add(`hidden`)
 	receiptTab.classList.remove(`hidden`)
 })
-// newOrderButton.addEventListener("click", () => {
-// 	wontonBoxTab.classList.add(`hidden`)
-// 	menuTab.classList.remove(`hidden`)
-// 	bodyElement.style.backgroundColor = "#489078"
-// })
+
 receiptNewOrderButton.addEventListener("click", () => {
 	receiptTab.classList.add(`hidden`)
 	menuTab.classList.remove(`hidden`)
 	bodyElement.style.backgroundColor = "#489078"
 })
-// regMenuButton.addEventListener("click", () => {
-// 	menuTab.classList.remove(`hidden`)
-// })
 
-// Event listener to clear cart and reset the UI
+// event listener to clear cart and reset the UI
 newOrderButton.addEventListener("click", () => {
-    // Clear the cart
-    cart.length = 0; // Reset cart array
+   cart.length = 0 
 
-    // Re-render order tab to reflect empty cart
-    renderOrderTab();
-	initializeBadgeUpdate();
-    // Switch to the menu tab
-    wontonBoxTab.classList.add('hidden');
-    menuTab.classList.remove('hidden');
-    bodyElement.style.backgroundColor = "#489078"; // Restore menu background color
-});
+    // re-render order tab to reflect empty cart and updating the badge
+    renderOrderTab()
+	initializeBadgeUpdate()
+    wontonBoxTab.classList.add('hidden')
+    menuTab.classList.remove('hidden')
+    bodyElement.style.backgroundColor = "#489078"
+})
+//same for the receipt "newOrderButton"
 receiptNewOrderButton.addEventListener("click", () => {
-    // Clear the cart
-    cart.length = 0; // Reset cart array
-
-    // Re-render order tab to reflect empty cart
-    renderOrderTab();
-	initializeBadgeUpdate();
-    // Switch to the menu tab
-    wontonBoxTab.classList.add('hidden');
-    menuTab.classList.remove('hidden');
-    bodyElement.style.backgroundColor = "#489078"; // Restore menu background color
-});
+    cart.length = 0
+    renderOrderTab()
+	initializeBadgeUpdate()
+    
+    wontonBoxTab.classList.add('hidden')
+    menuTab.classList.remove('hidden')
+    bodyElement.style.backgroundColor = "#489078"
+})

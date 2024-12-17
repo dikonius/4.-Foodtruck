@@ -4,7 +4,6 @@
 
 .order {
 	background-color: var(--order-bg-color);
-	/* height: 100vh; */
 	color: var(--dark-bg-color);
 	display: flex;
 	flex-direction: column;
@@ -57,7 +56,6 @@
 
 .order-btn-container {
 	display: flex;
-	/* align-items: baseline; */
 }
 
 .order-item-container:not(:last-of-type) {
