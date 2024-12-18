@@ -1,18 +1,21 @@
 import { cart } from './order.js'
 import { renderOrderTab } from './order.js'
+import { showCartBtn } from './order.js'
 import { initializeBadgeUpdate } from './notification_badge.js'
+// import { getCurrentOrderData } from './state.js'; // Import the correct state function
+// import { displayReceipt } from './eta.js'; // Ensure `displayReceipt` is correctly imported
 
 
-const menuCartButton = document.querySelector(`.menu-cartBTN`)
+export const menuCartButton = document.querySelector(`.menu-cartBTN`)
 const orderCartButton = document.querySelector(`.order-cartBTN `)
-const payButton = document.querySelector(`.paymentBtn`)
-const receiptButton = document.querySelector(`.eta-receiptBtn`)
+export const payButton = document.querySelector(`.paymentBtn`)
+export const receiptButton = document.querySelector(`.eta-receiptBtn`)
 const newOrderButton = document.querySelector(`.eta-new-orderBtn`)
 const receiptNewOrderButton = document.querySelector(`.receipt-new-orderBtn`)
 const menuTab = document.querySelector(`.menu`)
 const orderTab = document.querySelector(`.order`)
-const wontonBoxTab = document.querySelector(`.eta`)
-const receiptTab = document.querySelector(`.receipt`)
+export const wontonBoxTab = document.querySelector(`.eta`)
+export const receiptTab = document.querySelector(`.receipt`)
 const bodyElement = document.querySelector(`body`)
 
 
@@ -36,12 +39,11 @@ payButton.addEventListener("click", () => {
 receiptButton.addEventListener("click", () => {
 	wontonBoxTab.classList.add(`hidden`)
 	receiptTab.classList.remove(`hidden`)
-})
-
-receiptNewOrderButton.addEventListener("click", () => {
-	receiptTab.classList.add(`hidden`)
-	menuTab.classList.remove(`hidden`)
-	bodyElement.style.backgroundColor = "#489078"
+	if (data.order) {
+        displayReceipt(data.order) // Populate receipt data
+    } else {
+        console.error("No order data to display")
+    }
 })
 
 // event listener to clear cart and reset the UI
@@ -51,6 +53,8 @@ newOrderButton.addEventListener("click", () => {
     // re-render order tab to reflect empty cart and updating the badge
     renderOrderTab()
 	initializeBadgeUpdate()
+	showCartBtn()
+
     wontonBoxTab.classList.add('hidden')
     menuTab.classList.remove('hidden')
     bodyElement.style.backgroundColor = "#489078"
@@ -60,8 +64,18 @@ receiptNewOrderButton.addEventListener("click", () => {
     cart.length = 0
     renderOrderTab()
 	initializeBadgeUpdate()
+	showCartBtn()
     
-    wontonBoxTab.classList.add('hidden')
+    receiptTab.classList.add('hidden')
     menuTab.classList.remove('hidden')
     bodyElement.style.backgroundColor = "#489078"
 })
+
+receiptButton.addEventListener("click", () => {
+    const currentOrderData = getCurrentOrderData();
+    if (currentOrderData && currentOrderData.order) {
+        displayReceipt(currentOrderData.order);
+    } else {
+        console.error("No order data to display");
+    }
+});

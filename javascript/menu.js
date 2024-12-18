@@ -1,4 +1,4 @@
-import { attachMenuEventListeners } from './order.js'
+
 
 export function renderMenu(menuData) {
     const menuWontonContainer = document.getElementById('wonton-container')
@@ -39,5 +39,4 @@ export function renderMenu(menuData) {
         }
     })
 
-    attachMenuEventListeners(menuData) // to make sure that event listeners are attached after DOM is ready
 }

@@ -1,21 +1,11 @@
-import { cart, renderOrderTab } from './order.js'
+import { receiptButton } from './tabs_show_hide.js'
+import { cart } from './order.js'
 import { apiUrl, apiKey, tenant } from './api_data.js'
+import { setCurrentOrderData, getCurrentOrderData } from './state.js'
 
-const receiptButton = document.querySelector('.eta-receiptBtn')
-const newOrderButton = document.querySelector('.eta-new-orderBtn')
-const etaTab = document.querySelector('.eta')
-const receiptTab = document.querySelector('.receipt')
-const menuTab = document.querySelector('.menu')
-const bodyElement = document.querySelector('body')
-
-let currentOrderData = null // Store API response globally
 
 // Function to post the order
 async function postOrder() {
-    if (cart.length === 0) {
-        alert("cart is empty! Add items before proceeding.")
-        return
-    }
 
     try {
         // Prepare the order payload
@@ -42,14 +32,13 @@ async function postOrder() {
             throw new Error(`Failed to place order. Status: ${response.status} - ${responseBody.message || 'Unknown Error'}`)
         }
 
-        // Store the response globally
-        currentOrderData = responseBody
+        // Update the global state
+        setCurrentOrderData(responseBody)
 
         // Display ETA screen
         displayETA(responseBody)
     } catch (error) {
         console.error("Error posting the order:", error)
-        alert("There was an error placing your order. Please try again.")
     }
 }
 
@@ -73,13 +62,9 @@ function displayETA(orderData) {
 
     etaETA.textContent = `ETA ${remainingMinutes}`
     etaOrderNumber.textContent = `#${order.id.toUpperCase() || "Order Number Unavailable"}`
-
-    // Switch to ETA tab
-    document.querySelector('.order').classList.add('hidden')
-    etaTab.classList.remove('hidden')
 }
 
-function displayReceipt(orderData) {
+export function displayReceipt(orderData) {
     console.log("Displaying receipt with data:", orderData)
 
     const order = orderData.order || {}
@@ -90,7 +75,7 @@ function displayReceipt(orderData) {
     const receiptItemContainer = document.querySelector('.receipt-container')
     const receiptTotal = document.querySelector('.receipt-price')
 
-    receiptOrderNumber.textContent = `# ${order.id || "Unavailable"}`
+    receiptOrderNumber.textContent = `#${order.id.toUpperCase() || "Order Number Unavailable"}`
     receiptTotal.textContent = `${totalValue} SEK`
 
     // Clear previous items
@@ -118,13 +103,10 @@ function displayReceipt(orderData) {
         receiptItemContainer.appendChild(itemRow)
     })
 
-    // Switch to Receipt tab
-    document.querySelector('.eta').classList.add('hidden')
-    document.querySelector('.receipt').classList.remove('hidden')
 }
 
 // Function to group items by id and calculate total quantities
-function groupItems(items) {
+export function groupItems(items) {
     const grouped = {}
 
     items.forEach(item => {
@@ -153,25 +135,14 @@ function calculateQuantities(items) {
 }
 
 
-// // Function to start a new order
-// function startNewOrder() {
-//     cart.length = 0
-//     renderOrderTab()
-
-//     // Switch to Menu tab
-//     receiptTab.classList.add('hidden')
-//     etaTab.classList.add('hidden')
-//     menuTab.classList.remove('hidden')
-//     bodyElement.style.backgroundColor = "#489078"
-// }
-
-// Event listeners
+// Event listeners postorder
 document.querySelector('.paymentBtn').addEventListener('click', postOrder)
 receiptButton.addEventListener('click', () => {
-    if (currentOrderData) {
-        displayReceipt(currentOrderData)
-    } else {
+    const currentOrderData = getCurrentOrderData()
+	if (currentOrderData) {
+		displayReceipt(currentOrderData)
+    } 
+	else {
         console.error("No order data available to display receipt.")
     }
-});
-newOrderButton.addEventListener('click', startNewOrder)
+})

@@ -13,20 +13,22 @@
 	<link rel="preconnect" href="https://fonts.googleapis.com">
 	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 	<link href="https://fonts.googleapis.com/css2?family=Chewy&family=Fira+Mono:wght@400;500;700&display=swap" rel="stylesheet">
-
+<!-- ----------CSS------ -->
 	<link rel="stylesheet" href="style/main.css">
 	<link rel="stylesheet" href="style/order.css">
 	<link rel="stylesheet" href="style/variables.css">
 	<link rel="stylesheet" href="style/eta.css">
 	<link rel="stylesheet" href="style/receipt.css">
 	<link rel="stylesheet" href="style/registration.css">
-
+<!-- ---------JS--------- -->
 	<script type="module" src="javascript/tabs_show_hide.js"></script>
+	<script type="module" src="javascript/state.js"></script>
 	<script type="module" src="javascript/api_data.js"></script>
 	<script type="module" src="javascript/menu.js"></script>
 	<script type="module" src="javascript/notification_badge.js"></script>
 	<script type="module" src="javascript/order.js"></script>
 	<script type="module" src="javascript/eta.js"></script>
+	
 
 
 </head>
@@ -35,7 +37,7 @@
 	<section class="menu">
 		<div class="menu-nest4-cart-container">
 			<span class="menu-badge hidden"></span>
-			<button class="menu-cartBTN">
+			<button class="menu-cartBTN hidden">
 				<img class="menu-cart" src="assets/cart.png" alt="shopping_cart">
 			</button>
 		</div>
@@ -109,16 +111,6 @@
 				<span class="receipt-order-number">  </span>
 			</div>
 	
-			<div class="receipt-item">
-				<div class="receipt-item-name-container">
-					<p class="receipt-item-name"> </p>
-					<span class="receipt-item-dots"></span>
-					<p class="receipt-item-subtotal"> </p>
-				</div>
-				<div class="receipt-btn-container">
-					<span class="receipt-item-quantity"> stycken </span>
-				</div>
-			</div>
 			<div class="receipt-item">
 				<div class="receipt-item-name-container">
 					<p class="receipt-item-name"> </p>

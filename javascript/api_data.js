@@ -32,11 +32,8 @@ async function fetchMenu() {
 async function main() {
     try {
         const menuData = await fetchMenu()
-        if (!menuData || menuData.length === 0) {
-            throw new Error('menu-data is empty or invalid')
-        }
 
-        renderMenu(menuData) // we render menu
+        renderMenu(menuData)
         attachMenuEventListeners(menuData)
     } catch (error) {
         console.error('error during menu fetch or render:', error)

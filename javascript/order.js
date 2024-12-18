@@ -1,4 +1,5 @@
 import { updateBadge } from './notification_badge.js'
+import { menuCartButton } from './tabs_show_hide.js'
 
 const orderContainer = document.querySelector('.order')
 const orderItemContainer = orderContainer.querySelector('.order-item')
@@ -6,15 +7,20 @@ const orderPriceElement = orderContainer.querySelector('.order-price')
 
 let cart = []
 
+export function showCartBtn() {
+	if (cart.length >= 1) {
+		menuCartButton.classList.remove(`hidden`)
+	}
+	else {
+		menuCartButton.classList.add(`hidden`)
+	}
+}
+
 function renderOrderTab() {
     orderItemContainer.innerHTML = ''
     let totalPrice = 0
 
     cart.forEach((item, index) => {
-        if (!item || !item.name || typeof item.price !== 'number') {
-            console.warn('Skipping invalid cart item:', item)
-            return
-        }
 
         const itemSubtotal = item.price * item.quantity
         totalPrice += itemSubtotal
@@ -40,10 +46,6 @@ function renderOrderTab() {
 }
 
 function addToCart(item) {
-    if (!item || !item.id || !item.name || typeof item.price !== 'number') {
-        console.error('Invalid item attempted to be added to the cart:', item)
-        return
-    }
 
     const existingItem = cart.find(cartItem => cartItem.id === item.id)
 
@@ -53,12 +55,24 @@ function addToCart(item) {
         cart.push({ ...item, quantity: 1 })
     }
 
-    console.log('Cart updated:', cart) // debug
-
-    renderOrderTab() // ensure this updates the DOM once
-    updateBadge() //  update badge explicitly
+    renderOrderTab()
+	showCartBtn() // ensure this updates the DOM once
+    updateBadge()
+	updatePaymentButtonState()
 }
 
+function updatePaymentButtonState() {
+    const paymentButton = document.querySelector('.paymentBtn')
+    if (cart.length === 0) {
+        paymentButton.setAttribute('disabled', 'disabled')
+		paymentButton.innerHTML = '' + "VÄNLIGEN ÅTERGÅ OCH VÄLJ NÅGOT FRÅN MENYN"
+		paymentButton.style.color = "red"
+    } else {
+        paymentButton.removeAttribute('disabled')
+        paymentButton.innerHTML = 'TAKE MY MONEY!'
+        paymentButton.style.color = '' // Reset to default
+    }
+}
 
 function removeItem(index) {
     if (cart[index]) {
@@ -67,9 +81,13 @@ function removeItem(index) {
             cart.splice(index, 1)
         }
         renderOrderTab()
+		showCartBtn()
         updateBadge()
+		updatePaymentButtonState()
     }
 }
+
+updatePaymentButtonState()
 
 orderItemContainer.addEventListener('click', (event) => {
     const button = event.target
@@ -92,7 +110,7 @@ function attachMenuEventListeners(menuData) {
             // removing any existing listeners
             const existingListener = button.dataset.listenerAttached === "true"
             if (!existingListener) {
-                button.addEventListener('click', () => addToCart(item));
+                button.addEventListener('click', () => addToCart(item))
                 button.dataset.listenerAttached = "true" // mark as attached
             }
         } else {
