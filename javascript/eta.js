@@ -54,30 +54,30 @@ async function postOrder() {
 }
 
 // Function to display ETA screen
-// function displayETA(orderData) {
-//     console.log("Order Data Received:", orderData)
+function displayETA(orderData) {
+    console.log("Order Data Received:", orderData)
 
-//     const etaETA = document.querySelector('.eta-eta')
-//     const etaOrderNumber = document.querySelector('.eta-order-number')
+    const etaETA = document.querySelector('.eta-eta')
+    const etaOrderNumber = document.querySelector('.eta-order-number')
 
-//     const order = orderData.order || {}
-//     const etaTime = order.eta ? new Date(order.eta) : null
+    const order = orderData.order || {}
+    const etaTime = order.eta ? new Date(order.eta) : null
 
-//     let remainingMinutes = "ETA Unavailable"
-//     if (etaTime) {
-//         const now = new Date()
-//         const differenceInMs = etaTime - now
-//         const differenceInMinutes = Math.ceil(differenceInMs / (1000 * 60))
-//         remainingMinutes = differenceInMinutes > 0 ? `${differenceInMinutes} MIN` : "Arriving now"
-//     }
+    let remainingMinutes = "ETA Unavailable"
+    if (etaTime) {
+        const now = new Date()
+        const differenceInMs = etaTime - now
+        const differenceInMinutes = Math.ceil(differenceInMs / (1000 * 60))
+        remainingMinutes = differenceInMinutes > 0 ? `${differenceInMinutes} MIN` : "Arriving now"
+    }
 
-//     etaETA.textContent = `ETA ${remainingMinutes}`
-//     etaOrderNumber.textContent = `#${order.id.toUpperCase() || "Order Number Unavailable"}`
+    etaETA.textContent = `ETA ${remainingMinutes}`
+    etaOrderNumber.textContent = `#${order.id.toUpperCase() || "Order Number Unavailable"}`
 
-//     // Switch to ETA tab
-//     document.querySelector('.order').classList.add('hidden')
-//     etaTab.classList.remove('hidden')
-// }
+    // Switch to ETA tab
+    document.querySelector('.order').classList.add('hidden')
+    etaTab.classList.remove('hidden')
+}
 
 function displayReceipt(orderData) {
     console.log("Displaying receipt with data:", orderData)
