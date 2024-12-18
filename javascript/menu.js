@@ -1,5 +1,3 @@
-
-
 export function renderMenu(menuData) {
     const menuWontonContainer = document.getElementById('wonton-container')
     const menuDipsContainer = document.getElementById('dips-container')
