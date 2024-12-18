@@ -2,8 +2,6 @@ import { cart } from './order.js'
 import { renderOrderTab } from './order.js'
 import { showCartBtn } from './order.js'
 import { initializeBadgeUpdate } from './notification_badge.js'
-// import { getCurrentOrderData } from './state.js'; // Import the correct state function
-// import { displayReceipt } from './eta.js'; // Ensure `displayReceipt` is correctly imported
 
 
 export const menuCartButton = document.querySelector(`.menu-cartBTN`)
@@ -39,10 +37,11 @@ payButton.addEventListener("click", () => {
 receiptButton.addEventListener("click", () => {
 	wontonBoxTab.classList.add(`hidden`)
 	receiptTab.classList.remove(`hidden`)
-	if (data.order) {
-        displayReceipt(data.order) // Populate receipt data
-    } else {
-        console.error("No order data to display")
+
+    // Ensure nested container visibility
+    const receiptImgContainer = document.querySelector('.receipt-nest4-img-container')
+    if (receiptImgContainer) {
+        receiptImgContainer.style.display = 'flex' // or remove `hidden` class if used
     }
 })
 
@@ -70,12 +69,3 @@ receiptNewOrderButton.addEventListener("click", () => {
     menuTab.classList.remove('hidden')
     bodyElement.style.backgroundColor = "#489078"
 })
-
-receiptButton.addEventListener("click", () => {
-    const currentOrderData = getCurrentOrderData();
-    if (currentOrderData && currentOrderData.order) {
-        displayReceipt(currentOrderData.order);
-    } else {
-        console.error("No order data to display");
-    }
-});

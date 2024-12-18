@@ -41,6 +41,7 @@
 .receipt-order-number {
 	font-weight: 800;
 	color: var(--gray-bg-color);
+	margin-bottom: 1em;
 }
 
 .receipt-item, .receipt-item-last {

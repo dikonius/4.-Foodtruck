@@ -1,14 +1,14 @@
-let currentOrderData = null;
-let cart = [];
+let currentOrderData = null
+let cart = []
 
 export function setCurrentOrderData(data) {
-    currentOrderData = data;
+    currentOrderData = data
 }
 
 export function getCurrentOrderData() {
-    return currentOrderData;
+    return currentOrderData
 }
 
 export function getCart() {
-    return cart;
+    return cart
 }
