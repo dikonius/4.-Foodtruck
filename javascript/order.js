@@ -1,20 +1,11 @@
 import { updateBadge } from './notification_badge.js'
-import { menuCartButton } from './tabs_show_hide.js'
+import { showCartBtn } from './tabs_show_hide.js'
 
 const orderContainer = document.querySelector('.order')
 const orderItemContainer = orderContainer.querySelector('.order-item')
 const orderPriceElement = orderContainer.querySelector('.order-price')
 
 let cart = []
-
-export function showCartBtn() {
-	if (cart.length >= 1) {
-		menuCartButton.classList.remove(`hidden`)
-	}
-	else {
-		menuCartButton.classList.add(`hidden`)
-	}
-}
 
 function renderOrderTab() {
     orderItemContainer.innerHTML = ''
@@ -66,7 +57,7 @@ function updatePaymentButtonState() {
     if (cart.length === 0) {
         paymentButton.setAttribute('disabled', 'disabled')
 		paymentButton.innerHTML = '' + "VÄNLIGEN ÅTERGÅ OCH VÄLJ NÅGOT FRÅN MENYN"
-		paymentButton.style.color = "red"
+		paymentButton.style.color = "#ea7676"
     } else {
         paymentButton.removeAttribute('disabled')
         paymentButton.innerHTML = 'TAKE MY MONEY!'

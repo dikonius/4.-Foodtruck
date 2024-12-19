@@ -1,6 +1,6 @@
 import { cart } from './order.js'
 import { renderOrderTab } from './order.js'
-import { showCartBtn } from './order.js'
+// import { showCartBtn } from './order.js'
 import { initializeBadgeUpdate } from './notification_badge.js'
 
 
@@ -16,6 +16,14 @@ export const wontonBoxTab = document.querySelector(`.eta`)
 export const receiptTab = document.querySelector(`.receipt`)
 const bodyElement = document.querySelector(`body`)
 
+export function showCartBtn() {
+	if (cart.length >= 1) {
+		document.getElementById("menuCartBtn").style.visibility = "visible"
+	}
+	else {
+		document.getElementById("menuCartBtn").style.visibility = "hidden"
+	}
+}
 
 menuCartButton.addEventListener("click", () => {
 	menuTab.classList.add(`hidden`)
@@ -69,3 +77,4 @@ receiptNewOrderButton.addEventListener("click", () => {
     menuTab.classList.remove('hidden')
     bodyElement.style.backgroundColor = "#489078"
 })
+

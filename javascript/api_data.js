@@ -1,5 +1,6 @@
 import { renderMenu } from './menu.js'
 import { attachMenuEventListeners } from './order.js'
+import { showCartBtn } from './tabs_show_hide.js'
 
 
 export const apiUrl = 'https://fdnzawlcf6.execute-api.eu-north-1.amazonaws.com'
@@ -35,8 +36,9 @@ async function main() {
 
         renderMenu(menuData)
         attachMenuEventListeners(menuData)
+        showCartBtn(); // Update visibility of the cart button based on the initial cart state
     } catch (error) {
-        console.error('error during menu fetch or render:', error)
+        console.error('Error during menu fetch or render:', error)
     }
 }
 
