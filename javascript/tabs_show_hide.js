@@ -1,6 +1,5 @@
 import { cart } from './order.js'
 import { renderOrderTab } from './order.js'
-// import { showCartBtn } from './order.js'
 import { initializeBadgeUpdate } from './notification_badge.js'
 
 
